@@ -1,0 +1,16 @@
+bonacamp.se.system_manager.server_manager.app-jetified-window-1.0.0-beta04-0 C:\Users\bona.kyeongrak\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\res
+bonacamp.se.system_manager.server_manager.app-webkit-1.7.0-1 C:\Users\bona.kyeongrak\.gradle\caches\transforms-3\26053599e8c0dac0e11dd421905435f3\transformed\webkit-1.7.0\res
+bonacamp.se.system_manager.server_manager.app-jetified-annotation-experimental-1.1.0-2 C:\Users\bona.kyeongrak\.gradle\caches\transforms-3\6c0c163cc77ae6c91f9f7dfcd179c29c\transformed\jetified-annotation-experimental-1.1.0\res
+bonacamp.se.system_manager.server_manager.app-core-1.6.0-3 C:\Users\bona.kyeongrak\.gradle\caches\transforms-3\7e9df2ac2213a6bd3cef0f2f27870d79\transformed\core-1.6.0\res
+bonacamp.se.system_manager.server_manager.app-jetified-window-java-1.0.0-beta04-4 C:\Users\bona.kyeongrak\.gradle\caches\transforms-3\ae81e06d24c799147c26814497a2a305\transformed\jetified-window-java-1.0.0-beta04\res
+bonacamp.se.system_manager.server_manager.app-debug-5 D:\Workspace\Flutter Project\bonacamp.se.system-manager\android\app\src\debug\res
+bonacamp.se.system_manager.server_manager.app-main-6 D:\Workspace\Flutter Project\bonacamp.se.system-manager\android\app\src\main\res
+bonacamp.se.system_manager.server_manager.app-pngs-7 D:\Workspace\Flutter Project\bonacamp.se.system-manager\build\app\generated\res\pngs\debug
+bonacamp.se.system_manager.server_manager.app-resValues-8 D:\Workspace\Flutter Project\bonacamp.se.system-manager\build\app\generated\res\resValues\debug
+bonacamp.se.system_manager.server_manager.app-rs-9 D:\Workspace\Flutter Project\bonacamp.se.system-manager\build\app\generated\res\rs\debug
+bonacamp.se.system_manager.server_manager.app-mergeDebugResources-10 D:\Workspace\Flutter Project\bonacamp.se.system-manager\build\app\intermediates\incremental\debug\mergeDebugResources\merged.dir
+bonacamp.se.system_manager.server_manager.app-mergeDebugResources-11 D:\Workspace\Flutter Project\bonacamp.se.system-manager\build\app\intermediates\incremental\debug\mergeDebugResources\stripped.dir
+bonacamp.se.system_manager.server_manager.app-merged_res-12 D:\Workspace\Flutter Project\bonacamp.se.system-manager\build\app\intermediates\merged_res\debug
+bonacamp.se.system_manager.server_manager.app-packaged_res-13 D:\Workspace\Flutter Project\bonacamp.se.system-manager\build\flutter_custom_dialog\intermediates\packaged_res\debug
+bonacamp.se.system_manager.server_manager.app-packaged_res-14 D:\Workspace\Flutter Project\bonacamp.se.system-manager\build\path_provider_android\intermediates\packaged_res\debug
+bonacamp.se.system_manager.server_manager.app-packaged_res-15 D:\Workspace\Flutter Project\bonacamp.se.system-manager\build\webview_flutter_android\intermediates\packaged_res\debug

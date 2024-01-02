@@ -22,11 +22,6 @@ References :
 
 ```bash
 lib
-  ├─assets
-  │  ├─icons
-  │  ├─images
-  │  ├─json_dummy
-  │  └─translations
   ├─components
   ├─layouts
   ├─models
