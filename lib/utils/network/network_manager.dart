@@ -1,8 +1,4 @@
-import 'dart:convert';
-import 'dart:developer';
-
 import 'package:dio/dio.dart';
-import 'package:dio/src/response.dart' as Res;
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 
@@ -18,7 +14,11 @@ class NetworkManager extends GetxController {
 Future<Dio> reqApi(header) async {
   var options = BaseOptions(
     baseUrl: await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail'),
-    headers: {'Authorization': await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail'), 'Client-Code': header},
+    headers: {
+      'Authorization':
+          await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail'),
+      'Client-Code': header
+    },
     //headers: {'Authorization': 'Bearer asdasd', 'Client-Code': header},
     contentType: 'application/json',
     connectTimeout: Duration(seconds: CONNECT_TIMEOUT),
@@ -33,10 +33,10 @@ Future<Dio> reqApi(header) async {
     return handler.next(options); //continue
   }, onResponse: (response, handler) {
     return handler.next(response); // continue
-  }, onError: (DioException dioError, ErrorInterceptorHandler errorInterceptorHandler) async {
+  }, onError: (DioException dioError,
+      ErrorInterceptorHandler errorInterceptorHandler) async {
     if (dioError.response?.statusCode == 200) {
-    }
-    else {
+    } else {
       return errorInterceptorHandler.next(dioError);
     }
     return errorInterceptorHandler.next(dioError);

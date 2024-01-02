@@ -16,7 +16,7 @@ Library
 
 - GetX (https://pub.dev/packages/get)
 
-References : 
+References :
 
 ## Directory
 

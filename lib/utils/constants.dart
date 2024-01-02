@@ -5,7 +5,6 @@
 const APP_NAME = 'Admin Manager';
 const COPY_RIGHT = 'Copyright 2024. BONACAMP All rights reserved.';
 
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /*
@@ -59,7 +58,8 @@ const API_SYSTEM_BRANCHES = '/branches';
 const API_SYSTEM_TEAMS = '/teams';
 const API_SYSTEM_WAREHOUSES = '/warehouses';
 const API_SYSTEM_COMMON = '/v1/main/common';
-const API_SYSTEM_COMMON_PARAM = 'AMC002,ABS010,ABS014,ABS018,ASS021,ABS013,ARI003'; // 시스템 코드
+const API_SYSTEM_COMMON_PARAM =
+    'AMC002,ABS010,ABS014,ABS018,ASS021,ABS013,ARI003'; // 시스템 코드
 const API_SYSTEM_DASHBOARD = '/total-v2'; // 대시보드
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////

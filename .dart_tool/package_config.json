@@ -170,6 +170,24 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "firebase_core",
+      "rootUri": "file:///C:/Users/bona.kyeongrak/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_core-2.24.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "firebase_core_platform_interface",
+      "rootUri": "file:///C:/Users/bona.kyeongrak/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_core_platform_interface-5.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "firebase_core_web",
+      "rootUri": "file:///C:/Users/bona.kyeongrak/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_core_web-2.10.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
       "name": "fixnum",
       "rootUri": "file:///C:/Users/bona.kyeongrak/AppData/Local/Pub/Cache/hosted/pub.dev/fixnum-1.1.0",
       "packageUri": "lib/",
@@ -202,6 +220,12 @@
     {
       "name": "flutter_test",
       "rootUri": "file:///D:/flutter/packages/flutter_test",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "flutter_web_plugins",
+      "rootUri": "file:///D:/flutter/packages/flutter_web_plugins",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
@@ -578,7 +602,7 @@
       "languageVersion": "3.1"
     }
   ],
-  "generated": "2024-01-02T05:31:22.838980Z",
+  "generated": "2024-01-02T06:27:29.235994Z",
   "generator": "pub",
   "generatorVersion": "3.1.0"
 }

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "743545271636",
+    "project_id": "adminmanager-13614",
+    "storage_bucket": "adminmanager-13614.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:743545271636:android:5d9f1d361b24265a2984c1",
+        "android_client_info": {
+          "package_name": "bonacamp.se.system_manager.server_manager"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWj74SyzRiULQPIfykE9I431PR0_LNjY4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

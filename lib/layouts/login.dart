@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../utils/constants.dart';
-import '../../utils/theme/text_theme.dart';
-
 class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
