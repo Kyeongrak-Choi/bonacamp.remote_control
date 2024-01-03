@@ -12,17 +12,7 @@ const COPY_RIGHT = 'Copyright 2024. BONACAMP All rights reserved.';
  */
 
 const ROUTE_LOGIN = '/login';
-// const ROUTE_NATIGATION = '/navigation';
-// const ROUTE_POLICY = '/policy';
-// const ROUTE_CONFIG = '/config';
-// const ROUTE_NOTICE = '/notice';
-// const ROUTE_SYSTEM_CONFIG = '/systemConfig';
-// const ROUTE_MENU_CONFIG = '/menuConfig';
-// const ROUTE_EXAM_MENU = '/menuConfig';
-// const ROUTE_DIALOG_CUSTOMER = '/searchCustomer';
-// const ROUTE_DIALOG_PURCHASE = '/searchPurchase';
-// const ROUTE_DIALOG_ITEM = '/searchItem';
-// const ROUTE_DIALOG_LENDITM = '/searchLendItem';
+const ROUTE_AUTH = '/auth';
 
 /*
   Util

@@ -1,4 +1,7 @@
-#Tue Jan 02 15:54:27 KST 2024
+#Wed Jan 03 13:46:45 KST 2024
 base.0=D\:\\Workspace\\Flutter Project\\bonacamp.se.system-manager\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+base.1=D\:\\Workspace\\Flutter Project\\bonacamp.se.system-manager\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes2.dex
 path.0=classes.dex
+path.1=classes2.dex
 renamed.0=classes.dex
+renamed.1=classes2.dex

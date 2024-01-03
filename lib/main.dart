@@ -1,8 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:server_manager/layouts/otp_auth.dart';
 import 'package:server_manager/utils/constants.dart';
 import 'package:server_manager/utils/database/hive_manager.dart';
 import 'package:server_manager/utils/theme/theme_manager.dart';
@@ -40,17 +42,23 @@ class AdminManager extends StatelessWidget {
           locale: Get.deviceLocale,
           fallbackLocale: Locale('ko', 'KR'),
           // default locale set
-          initialBinding: InitBinding(),
+          // initialBinding: InitBinding(),
           theme: Themes.light,
           darkTheme: Themes.dark,
           themeMode: ThemeMode.system,
           supportedLocales: [
             const Locale('ko', 'KR'),
           ],
+          localizationsDelegates: [
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
           // Route manage
           getPages: [
             // Layout
             GetPage(name: ROUTE_LOGIN, page: () => Login()), // Login
+            GetPage(name: ROUTE_AUTH, page: () => OTPAuth()), // Google OTP Auth
           ],
           home: Login(),
         ),
@@ -59,9 +67,9 @@ class AdminManager extends StatelessWidget {
   }
 }
 
-class InitBinding implements Bindings {
-  @override
-  void dependencies() {
-    //Get.put(NavigationController());
-  }
-}
+// class InitBinding implements Bindings {
+//   @override
+//   void dependencies() {
+//     //Get.put(NavigationController());
+//   }
+// }

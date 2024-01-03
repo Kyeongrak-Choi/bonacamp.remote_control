@@ -11,6 +11,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
 
   # =========================================================================
   # System                                                                  #
@@ -37,11 +39,21 @@ dependencies:
   webview_flutter: ^4.2.3
   # reference - https://pub.dev/packages/webview_flutter
   # descryption - webview widget
+
+
+  # =========================================================================
+  # Authorization                                                           #
+  # =========================================================================
   google_sign_in: ^6.1.6
   # reference - https://pub.dev/packages/google_sign_in
   # descryption - Google account login
   firebase_core: ^2.24.2
+  # reference - https://pub.dev/packages/firebase_core
+  # descryption - Firebase Function
   firebase_auth: ^4.6.3
+  # reference - https://pub.dev/packages/firebase_auth
+  # descryption - Firebase Auth
+
 
 
   # =========================================================================
@@ -79,6 +91,9 @@ dependencies:
   flutter_screenutil: ^5.9.0
   # reference - https://pub.dev/packages/flutter_screenutil
   # descryption - ui concept
+  pin_code_fields: ^8.0.1
+  # reference - https://pub.dev/packages/pin_code_fields
+  # descryption - pin code widget
 
 
 dev_dependencies:

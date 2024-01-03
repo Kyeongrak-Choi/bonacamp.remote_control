@@ -6,26 +6,20 @@ import '../components/login/login_btn.dart';
 class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          decoration: BoxDecoration(
-            color: context.theme.canvasColor,
-          ),
-          child: Center(
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                LoginBtn(),
-              ],
-            ),
-          )
+    Get.put(LoginController());
+    return GetBuilder<LoginController>(builder: (LoginController controller) {
+      return Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            LoginBtn(),
+          ],
         ),
-      ),
-    );
+      );
+    });
   }
 }
+
+class LoginController extends GetxController {}

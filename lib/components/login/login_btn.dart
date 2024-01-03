@@ -17,7 +17,7 @@ class LoginBtn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(NetworkManager());
+    Get.put(LoginBtnController());
     return GetBuilder<LoginBtnController>(
         builder: (LoginBtnController controller) {
       return Row(
@@ -30,8 +30,8 @@ class LoginBtn extends StatelessWidget {
             child: ElevatedButton(
                 onPressed: () async {
                   controller.signInWithGoogle();
+                  Get.toNamed(ROUTE_AUTH);
                 },
-                // child: Text('text_login'.tr,style: context.textTheme.titleLarge,),
                 child: Text('sign in google',
                     style:
                         TextStyle(color: CommonColors.white, fontSize: 18.sp)),

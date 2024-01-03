@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "bonacamp.se.system_manager.server_manager.app-mergeDebugResources-14:/values-as/values-as.xml",
+            "outputFile": "bonacamp.se.system_manager.server_manager.app-mergeDebugResources-15:/values-as/values-as.xml",
             "map": [
                 {
                     "source": "C:\\Users\\bona.kyeongrak\\.gradle\\caches\\transforms-3\\aba8f806953ea3dd8f794da3aeb78a12\\transformed\\jetified-play-services-base-18.0.1\\res\\values-as\\values.xml",
@@ -47,11 +47,28 @@
                         "endOffsets": "151"
                     },
                     "to": {
-                        "startLines": "20",
+                        "startLines": "24",
                         "startColumns": "4",
-                        "startOffsets": "2177",
+                        "startOffsets": "2605",
                         "endColumns": "100",
-                        "endOffsets": "2273"
+                        "endOffsets": "2701"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\bona.kyeongrak\\.gradle\\caches\\transforms-3\\6d3bbaf4594b8ed85e4722883be764b3\\transformed\\browser-1.4.0\\res\\values-as\\values-as.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,163,269,377",
+                        "endColumns": "107,105,107,105",
+                        "endOffsets": "158,264,372,478"
+                    },
+                    "to": {
+                        "startLines": "20,21,22,23",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "2177,2285,2391,2499",
+                        "endColumns": "107,105,107,105",
+                        "endOffsets": "2280,2386,2494,2600"
                     }
                 }
             ]
