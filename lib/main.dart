@@ -42,7 +42,6 @@ class AdminManager extends StatelessWidget {
           locale: Get.deviceLocale,
           fallbackLocale: Locale('ko', 'KR'),
           // default locale set
-          // initialBinding: InitBinding(),
           theme: Themes.light,
           darkTheme: Themes.dark,
           themeMode: ThemeMode.system,
@@ -66,10 +65,3 @@ class AdminManager extends StatelessWidget {
     });
   }
 }
-
-// class InitBinding implements Bindings {
-//   @override
-//   void dependencies() {
-//     //Get.put(NavigationController());
-//   }
-// }

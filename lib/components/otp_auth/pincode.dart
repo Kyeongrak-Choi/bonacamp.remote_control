@@ -26,36 +26,47 @@ class Pincode extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Flexible(
-            flex: 1,
             child: PinCodeTextField(
+              autoDisposeControllers: false,
+              appContext: context,
               length: 6,
               obscureText: false,
               animationType: AnimationType.fade,
+              keyboardType: TextInputType.number,
               pinTheme: PinTheme(
+                fieldHeight: 44,
+                fieldWidth: 44,
+                borderWidth: 2,
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(12),
+                  bottomRight: Radius.circular(12),
+                  topLeft: Radius.circular(12),
+                  topRight: Radius.circular(12),
+                ),
                 shape: PinCodeFieldShape.box,
-                borderRadius: BorderRadius.circular(5),
-                fieldHeight: 50,
-                fieldWidth: 40,
-                activeFillColor: Colors.white,
+                activeColor: Colors.green
+                //inactiveColor: FlutterFlowTheme.of(context).alternate,
+                //selectedColor: FlutterFlowTheme.of(context).primary,
+                //activeFillColor: FlutterFlowTheme.of(context).primaryText,
+                //inactiveFillColor: FlutterFlowTheme.of(context).alternate,
+                //selectedFillColor: FlutterFlowTheme.of(context).primary,
               ),
               animationDuration: Duration(milliseconds: 300),
-              backgroundColor: Colors.blue.shade50,
+              //backgroundColor: Colors.blue.shade50,
               enableActiveFill: true,
               //errorAnimationController: errorController,
-              // controller: textEditingController,
+             // controller: textEditingController,
               onCompleted: (v) {
                 print("Completed");
               },
               onChanged: (value) {
                 print(value);
+
               },
               beforeTextPaste: (text) {
                 print("Allowing to paste $text");
-                //if you return true then it will show the paste confirmation dialog. Otherwise if false, then nothing will happen.
-                //but you can show anything you want here, like your pop up saying wrong paste format or etc
                 return true;
               },
-              appContext: context,
             ),
           ),
         ],

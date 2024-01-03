@@ -242,6 +242,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "flutter_pin_code_widget",
+      "rootUri": "file:///C:/Users/bona.kyeongrak/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_pin_code_widget-0.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.15"
+    },
+    {
       "name": "flutter_screenutil",
       "rootUri": "file:///C:/Users/bona.kyeongrak/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_screenutil-5.9.0",
       "packageUri": "lib/",
@@ -674,7 +680,7 @@
       "languageVersion": "3.1"
     }
   ],
-  "generated": "2024-01-03T05:11:23.047686Z",
+  "generated": "2024-01-03T05:50:41.425402Z",
   "generator": "pub",
   "generatorVersion": "3.1.0"
 }
