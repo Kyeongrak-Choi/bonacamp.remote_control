@@ -16,7 +16,7 @@ Library
 
 - GetX (https://pub.dev/packages/get)
 
-References :
+References : https://bonacamp.atlassian.net/wiki/spaces/~623136c573c8ec00699cdd1f/pages/297435150/Remote+Service+Control
 
 ## Directory
 
