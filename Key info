@@ -1,0 +1,12 @@
+key관련
+
+DEBUG KEY 확인
+keytool -list -v -keystore debug.keystore -alias androiddebugkey -storepass android -keypass android
+
+RELEASE KEY 확인
+keytool -list -v -keystore release.keystore -alias androiddreleasekey -storepass bona1234 -keypass bona1234
+
+앱 서명 KEY 확인
+keytool -list -v -keystore key.jks
+
+pw : bona1234

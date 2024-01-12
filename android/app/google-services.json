@@ -12,7 +12,20 @@
           "package_name": "bonacamp.se.system_manager.server_manager"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "743545271636-j7m64tbgm6nqrte37mlok90l5he7asnb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "bonacamp.se.system_manager.server_manager",
+            "certificate_hash": "e1c66916b1c360f1ca4944317b0e24bab8508b80"
+          }
+        },
+        {
+          "client_id": "743545271636-4j7j8abqi6he54qiqv4hgttqooknvkum.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDWj74SyzRiULQPIfykE9I431PR0_LNjY4"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "743545271636-4j7j8abqi6he54qiqv4hgttqooknvkum.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "743545271636-ba1m3kt1oej8dqi3vu2dfn1kchtdg5fn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "bonacamp.se.systemmanager.serverManager"
+              }
+            }
+          ]
         }
       }
     }

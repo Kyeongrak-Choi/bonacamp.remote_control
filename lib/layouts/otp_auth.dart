@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:server_manager/components/otp_auth/logout_btn.dart';
 import 'package:server_manager/components/otp_auth/pincode.dart';
+import 'package:server_manager/components/otp_auth/signin_btn.dart';
 
 import '../components/login/login_btn.dart';
 
@@ -15,7 +17,10 @@ class OTPAuth extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Pincode()
+              SigninBtn(),
+              Pincode(),
+              LogoutBtn(),
+
             ],
           ),
         ),

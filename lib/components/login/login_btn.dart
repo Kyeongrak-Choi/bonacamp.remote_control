@@ -8,6 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:hive/hive.dart';
+import 'package:server_manager/utils/utility.dart';
 
 import '../../utils/constants.dart';
 import '../../utils/network/network_manager.dart';
@@ -30,8 +31,13 @@ class LoginBtn extends StatelessWidget {
             height: 48.h,
             child: ElevatedButton(
                 onPressed: () async {
-                  controller.signInWithGoogle();
-                  Get.toNamed(ROUTE_AUTH);
+                  if(await controller.signInWithGoogle()){
+                    ShowSnackBar('로그인 성공');
+                    Get.toNamed(ROUTE_AUTH);
+                  }else{
+                    ShowSnackBar('로그인 실패');
+                  }
+
                 },
                 child: Text('sign in google',
                     style:
@@ -50,43 +56,38 @@ class LoginBtn extends StatelessWidget {
 }
 
 class LoginBtnController extends GetxController {
-  var inputId;
-  var inputPw;
-
-  var dio;
-
   final GoogleSignIn googleSignIn = GoogleSignIn();
 
   @override
   void onInit() {
     super.onInit();
-    inputId = Hive.box(LOCAL_DB).get(KEY_SAVED_ID);
-    inputPw = '';
   }
 
-  void setInputId(text) {
-    inputId = text;
-  }
+  Future<bool> signInWithGoogle() async {
+    final GoogleSignInAccount? googleUser;
 
-  void setInputPw(text) {
-    inputPw = text;
-  }
+    googleUser = await GoogleSignIn().signIn();
 
-  Future<UserCredential> signInWithGoogle() async {
-    // Trigger the authentication flow
-    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-
-    // Obtain the auth details from the request
     final GoogleSignInAuthentication? googleAuth =
         await googleUser?.authentication;
 
-    // Create a new credential
-    final credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth?.accessToken,
-      idToken: googleAuth?.idToken,
-    );
+    // final credential = GoogleAuthProvider.credential(
+    //   accessToken: googleAuth?.accessToken,
+    //   idToken: googleAuth?.idToken,
+    // );
+    //log('email : ' + googleUser!.email);
+    //return await FirebaseAuth.instance.signInWithCredential(credential);
+    if(googleUser!.email==""){
+      return false;
+    } else{
+      await Hive.box(LOCAL_DB).put(KEY_SAVED_ID, googleUser!.email); // Id save
+      return true;
+    }
+  }
 
-    // Once signed in, return the UserCredential
-    return await FirebaseAuth.instance.signInWithCredential(credential);
+  Future<bool> signOutWithGoogle() async {
+    googleSignIn.signOut();
+
+    return true;
   }
 }
