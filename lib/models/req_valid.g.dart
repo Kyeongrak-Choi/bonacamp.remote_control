@@ -9,7 +9,7 @@ part of 'req_valid.dart';
 ReqValidModel _$ReqValidModelFromJson(Map<String, dynamic> json) =>
     ReqValidModel(
       json['code'] as String,
-      json['key'] as String,
+      json['encoded-key'] as String,
     );
 
 Map<String, dynamic> _$ReqValidModelToJson(ReqValidModel instance) =>

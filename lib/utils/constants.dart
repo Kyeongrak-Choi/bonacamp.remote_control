@@ -44,6 +44,7 @@ const API_REQ_POST = 'POST';
 
 const API_SIGN_IN = '/api/v1/admin/otp/sign-in';
 const API_VALID = '/api/v1/admin/otp/valid';
+const API_GET_SERVER_LIST ='/api/v1/admin/servers';
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /*
@@ -66,6 +67,7 @@ const TAG_RETURN_LIST_OBJECT = 'data-list'; // response data-list object tag
 
 const LOCAL_DB = 'LOCAL_DB'; // Box name
 const KEY_SAVED_ID = 'savedId'; // save id Key
+const KEY_SAVED_IMG = 'savedImg'; // save img Key
 const KEY_BASE_URL = 'http://172.27.235.104:3758'; // target api url Key
 
 /*

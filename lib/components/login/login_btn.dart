@@ -22,34 +22,26 @@ class LoginBtn extends StatelessWidget {
     Get.put(LoginBtnController());
     return GetBuilder<LoginBtnController>(
         builder: (LoginBtnController controller) {
-      return Row(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Expanded(
-              child: Container(
-            height: 48.h,
-            child: ElevatedButton(
-                onPressed: () async {
-                  if(await controller.signInWithGoogle()){
-                    ShowSnackBar('로그인 성공');
-                    Get.toNamed(ROUTE_AUTH);
-                  }else{
-                    ShowSnackBar('로그인 실패');
-                  }
-
-                },
-                child: Text('sign in google',
-                    style:
-                        TextStyle(color: CommonColors.white, fontSize: 18.sp)),
-                style: ElevatedButton.styleFrom(
-                  foregroundColor: CommonColors.white,
-                  backgroundColor: CommonColors.primary,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8)),
-                )),
-          ))
-        ],
+      return Material(
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Expanded(
+                child: Container(
+                    color: context.theme.colorScheme.background,
+                    height: 48.h,
+                    child: InkWell(
+                        child: Image.asset('assets/icons/google_signin.png'),
+                        onTap: () async {
+                          if (await controller.signInWithGoogle()) {
+                            Get.toNamed(ROUTE_AUTH);
+                          } else {
+                            ShowSnackBar('로그인 실패');
+                          }
+                        })))
+          ],
+        ),
       );
     });
   }
@@ -77,10 +69,12 @@ class LoginBtnController extends GetxController {
     // );
     //log('email : ' + googleUser!.email);
     //return await FirebaseAuth.instance.signInWithCredential(credential);
-    if(googleUser!.email==""){
+
+    if (googleUser!.email == "") {
       return false;
-    } else{
+    } else {
       await Hive.box(LOCAL_DB).put(KEY_SAVED_ID, googleUser!.email); // Id save
+      await Hive.box(LOCAL_DB).put(KEY_SAVED_IMG, googleUser!.photoUrl); // img
       return true;
     }
   }

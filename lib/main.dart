@@ -39,7 +39,6 @@ class AdminManager extends StatelessWidget {
           fallbackLocale: Locale('ko', 'KR'),
           // default locale set
           theme: Themes.light,
-          darkTheme: Themes.dark,
           themeMode: ThemeMode.system,
           supportedLocales: [
             const Locale('ko', 'KR'),
