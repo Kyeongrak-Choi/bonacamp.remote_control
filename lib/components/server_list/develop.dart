@@ -11,7 +11,7 @@ class Develop extends StatelessWidget {
   var dataList;
 
   Develop(var model) {
-    dataList = generateServerList(model, model.length);
+    dataList = generateDevList(model, model.length);
   }
 
   @override

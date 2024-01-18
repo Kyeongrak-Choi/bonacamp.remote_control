@@ -70,8 +70,6 @@ class ServerTab extends StatelessWidget {
               child: TabBarView(
                 controller: Get.find<ServerListController>().tabController,
                 children: <Widget>[
-                  //Production(Get.find<ServerListController>().dataController),
-                  //Develop(Get.find<ServerListController>().dataController),
                   setProductionList(),
                   setDevelopList(),
                   // Production(),

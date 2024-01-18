@@ -54,13 +54,40 @@ class ResServerListModel {
   }
 }
 
-List<ResServerListModel> generateServerList(dataList, count) {
-  return List.generate(
-      count,
-      (index) => ResServerListModel(
-          dataList[index].name,
-          dataList[index].projectName,
-          dataList[index].prodHealth,
-          dataList[index].devHealth,
-          id: index));
+List<ResServerListModel> generateProdList(dataList, count) {
+
+  List<ResServerListModel> devList = [];
+
+  for (int i = 0; i < count; i++) {
+    if (dataList[i].prodHealth != '') {
+      devList.add(
+          ResServerListModel(
+              dataList[i].name,
+              dataList[i].projectName,
+              dataList[i].prodHealth,
+              dataList[i].devHealth,
+              id: i));
+    }
+  }
+
+  return devList;
+}
+
+List<ResServerListModel> generateDevList(dataList, count) {
+
+  List<ResServerListModel> devList = [];
+
+  for (int i = 0; i < count; i++) {
+    if (dataList[i].devHealth != '') {
+      devList.add(
+          ResServerListModel(
+              dataList[i].name,
+              dataList[i].projectName,
+              dataList[i].prodHealth,
+              dataList[i].devHealth,
+              id: i));
+    }
+  }
+
+  return devList;
 }

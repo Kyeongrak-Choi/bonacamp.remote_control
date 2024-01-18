@@ -11,7 +11,7 @@ class Production extends StatelessWidget {
   var dataList;
 
   Production(var model) {
-    dataList = generateServerList(model, model.length);
+    dataList = generateProdList(model, model.length);
   }
 
   @override
