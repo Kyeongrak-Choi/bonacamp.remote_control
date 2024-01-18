@@ -2,20 +2,14 @@ import 'dart:async';
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:hive/hive.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:server_manager/models/req_valid.dart';
 import 'package:server_manager/utils/utility.dart';
 
 import '../../utils/constants.dart';
-import '../../utils/database/hive_manager.dart';
-import '../../utils/network/network_manager.dart';
-import '../../utils/theme/color_manager.dart';
 
 class Pincode extends StatelessWidget {
   const Pincode({Key? key}) : super(key: key);

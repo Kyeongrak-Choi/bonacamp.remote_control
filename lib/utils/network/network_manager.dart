@@ -2,8 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 
-import 'package:dio/src/response.dart' as Res;
-
 import '../constants.dart';
 
 class NetworkManager extends GetxController {

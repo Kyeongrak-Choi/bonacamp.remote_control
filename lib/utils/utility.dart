@@ -1,6 +1,5 @@
 import 'package:dialogs/dialogs.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:server_manager/utils/theme/color_manager.dart';
