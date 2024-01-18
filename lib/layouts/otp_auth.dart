@@ -72,23 +72,21 @@ class OTPAuth extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.w,
-                    0.h, 0.w, BASIC_PADDING * 3.h),
+                padding: EdgeInsetsDirectional.fromSTEB(
+                    0.w, 0.h, 0.w, BASIC_PADDING * 3.h),
                 child: Text('Google OTP 번호 6자리를 입력하세요.'),
               ),
               Pincode(),
-
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.w,
-                    0.h, 0.w, BASIC_PADDING * 3.h),
-                child: ElevatedButton(
-                  onPressed: () {
-                    Get.toNamed(ROUTE_SERVER_LIST);
-                  },
-                  child: const Text('TEST'),
-                ),
-              ),
-
+              // Padding(
+              //   padding: EdgeInsetsDirectional.fromSTEB(
+              //       0.w, 0.h, 0.w, BASIC_PADDING * 3.h),
+              //   child: ElevatedButton(
+              //     onPressed: () {
+              //       Get.toNamed(ROUTE_SERVER_LIST);
+              //     },
+              //     child: const Text('TEST'),
+              //   ),
+              // ),
             ],
           ),
         ),
@@ -106,8 +104,6 @@ class OTPAuthController extends GetxController {
   }
 
   Future<bool> checkSignin() async {
-    //dio = await reqSignin();
-
     var options = BaseOptions(
       baseUrl: KEY_BASE_URL,
       contentType: 'application/json',
@@ -121,8 +117,8 @@ class OTPAuthController extends GetxController {
           data: ReqSigninModel(Hive.box(LOCAL_DB).get(KEY_SAVED_ID)).toMap());
       if (response.statusCode == 200) {
         BoxInit(); // local DB Set
-        log('key : ' + response.data[TAG_DATA]);
-        await Hive.box(LOCAL_DB).put(Hive.box(LOCAL_DB).get(KEY_SAVED_ID), response.data[TAG_DATA]); // save key
+        await Hive.box(LOCAL_DB)
+            .put(KEY_SAVED_CODE, response.data[TAG_DATA]); // save key
         return true;
       }
     } on DioException catch (e) {

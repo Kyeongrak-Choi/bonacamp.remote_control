@@ -26,7 +26,7 @@ class Production extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(ServerListController());
+    //Get.put(ServerListController());
     return GetBuilder<ServerListController>(
         builder: (ServerListController controller) {
       return SingleChildScrollView(

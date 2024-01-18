@@ -67,6 +67,7 @@ const TAG_RETURN_LIST_OBJECT = 'data-list'; // response data-list object tag
 
 const LOCAL_DB = 'LOCAL_DB'; // Box name
 const KEY_SAVED_ID = 'savedId'; // save id Key
+const KEY_SAVED_CODE = 'code'; // save valid code
 const KEY_SAVED_IMG = 'savedImg'; // save img Key
 const KEY_BASE_URL = 'http://172.27.235.104:3758'; // target api url Key
 

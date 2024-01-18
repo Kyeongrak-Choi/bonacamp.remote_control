@@ -63,7 +63,6 @@ class Pincode extends StatelessWidget {
               onCompleted: (pincode) async {
                 log('pincode : ' + pincode);
                 if(await controller.checkValid(pincode)){
-
                   Get.toNamed(ROUTE_SERVER_LIST);
                 }
 
@@ -93,8 +92,6 @@ class PincodeController extends GetxController {
 
 
   Future<bool> checkValid(pincode) async {
-    //dio = await reqSignin();
-
     var options = BaseOptions(
       baseUrl: KEY_BASE_URL,
       contentType: 'application/json',
@@ -105,7 +102,9 @@ class PincodeController extends GetxController {
     Dio dio = Dio(options);
     try {
       final response = await dio.post(KEY_BASE_URL + API_VALID,
-          data: ReqValidModel(pincode,Hive.box(LOCAL_DB).get(KEY_SAVED_ID)).toMap());
+          data: ReqValidModel(pincode,Hive.box(LOCAL_DB).get(KEY_SAVED_CODE))
+              .toMap());
+
       if (response.data[TAG_DATA]) {
         return true;
       }else{
