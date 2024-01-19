@@ -13,6 +13,7 @@ import '../../models/Request/req_run.dart';
 import '../../models/Response/res_server_list.dart';
 import '../../utils/constants.dart';
 import '../../utils/network/network_manager.dart';
+import '../../utils/theme/color_manager.dart';
 import '../../utils/utility.dart';
 
 class Develop extends StatelessWidget {
@@ -55,7 +56,7 @@ class Develop extends StatelessWidget {
                         width: 10.sp,
                       ),
                       Text(
-                        model.name,
+                        model.projectName,
                         style: context.textTheme.bodyLarge,
                         textAlign: TextAlign.left,
                         overflow: TextOverflow.ellipsis,
@@ -74,16 +75,14 @@ class Develop extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    FittedBox(
-                      fit: BoxFit.contain,
-                      child: IconButton(
-                        onPressed: () {
+                    ElevatedButton(
+                        onPressed: () async {
                           showDialog(
                             context: context,
                             builder: (BuildContext context) {
                               return AlertDialog(
                                 title: Text('개발 - 재시작'),
-                                content: Text(model.name),
+                                content: Text(model.projectName),
                                 actions: <Widget>[
                                   TextButton(
                                     onPressed: () {
@@ -95,12 +94,13 @@ class Develop extends StatelessWidget {
                                   TextButton(
                                     onPressed: () async {
                                       if (await Get.find<ProductionController>()
-                                          .run(RUN_TYPE.RESTART,
-                                          PROFILE_TYPE.dev, model.name)) {
+                                          .run(RUN_TYPE.RESTART, 'dev',
+                                          model.name)) {
                                         ShowSnackBar('호출 성공');
                                       } else {
                                         ShowSnackBar('호출 실패');
                                       }
+                                      Navigator.of(context).pop();
                                     },
                                     child: Text('확인'),
                                   ),
@@ -109,23 +109,25 @@ class Develop extends StatelessWidget {
                             },
                           );
                         },
-                        icon: Icon(
+                        child: Icon(
+                          // Icons.restart_alt,
                           CupertinoIcons.refresh_circled_solid,
-                          color: Colors.blue,
+                          color: Colors.white,
                         ),
-                        visualDensity: VisualDensity.compact,
-                      ),
-                    ),
-                    FittedBox(
-                      fit: BoxFit.contain,
-                      child: IconButton(
-                        onPressed: () {
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: CommonColors.white,
+                          backgroundColor: CommonColors.primary,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8)),
+                        )),
+                    ElevatedButton(
+                        onPressed: () async {
                           showDialog(
                             context: context,
                             builder: (BuildContext context) {
                               return AlertDialog(
                                 title: Text('개발 - 시작'),
-                                content: Text(model.name),
+                                content: Text(model.projectName),
                                 actions: <Widget>[
                                   TextButton(
                                     onPressed: () {
@@ -137,12 +139,13 @@ class Develop extends StatelessWidget {
                                   TextButton(
                                     onPressed: () async {
                                       if (await Get.find<ProductionController>()
-                                          .run(RUN_TYPE.START,
-                                          PROFILE_TYPE.dev, model.name)) {
+                                          .run(RUN_TYPE.START, 'dev',
+                                          model.name)) {
                                         ShowSnackBar('호출 성공');
                                       } else {
                                         ShowSnackBar('호출 실패');
                                       }
+                                      Navigator.of(context).pop();
                                     },
                                     child: Text('확인'),
                                   ),
@@ -151,23 +154,25 @@ class Develop extends StatelessWidget {
                             },
                           );
                         },
-                        icon: Icon(
+                        child: Icon(
+                          // Icons.restart_alt,
                           CupertinoIcons.arrow_right_circle_fill,
-                          color: Colors.green,
+                          color: Colors.white,
                         ),
-                        visualDensity: VisualDensity.compact,
-                      ),
-                    ),
-                    FittedBox(
-                      fit: BoxFit.contain,
-                      child: IconButton(
-                        onPressed: () {
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: CommonColors.white,
+                          backgroundColor: Colors.green,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8)),
+                        )),
+                    ElevatedButton(
+                        onPressed: () async {
                           showDialog(
                             context: context,
                             builder: (BuildContext context) {
                               return AlertDialog(
                                 title: Text('개발 - 종료'),
-                                content: Text(model.name),
+                                content: Text(model.projectName),
                                 actions: <Widget>[
                                   TextButton(
                                     onPressed: () {
@@ -179,12 +184,13 @@ class Develop extends StatelessWidget {
                                   TextButton(
                                     onPressed: () async {
                                       if (await Get.find<ProductionController>()
-                                          .run(RUN_TYPE.STOP,
-                                          PROFILE_TYPE.dev, model.name)) {
+                                          .run(RUN_TYPE.STOP, 'dev',
+                                          model.name)) {
                                         ShowSnackBar('호출 성공');
                                       } else {
                                         ShowSnackBar('호출 실패');
                                       }
+                                      Navigator.of(context).pop();
                                     },
                                     child: Text('확인'),
                                   ),
@@ -193,13 +199,17 @@ class Develop extends StatelessWidget {
                             },
                           );
                         },
-                        icon: Icon(
+                        child: Icon(
+                          // Icons.restart_alt,
                           Icons.stop_circle,
-                          color: Colors.red,
+                          color: Colors.white,
                         ),
-                        visualDensity: VisualDensity.compact,
-                      ),
-                    ),
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: CommonColors.white,
+                          backgroundColor: Colors.red,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8)),
+                        )),
                   ],
                 ),
               ),
@@ -228,7 +238,7 @@ class DevelopController extends GetxController {
   Future<void> reload() async {
     await Future.delayed(Duration(seconds: 1));
     for(int i=0; i<data.length; i++  ){
-      data[i].status = await getServerHealth(data[i].prodHealth);
+      data[i].status = await getServerHealth(data[i].devHealth);
     }
     update();
     Get.find<ServerListController>().getServerList();
