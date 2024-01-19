@@ -5,6 +5,8 @@ import 'package:hive/hive.dart';
 import 'package:server_manager/components/server_list/server_tab.dart';
 
 import '../components/login/login_btn.dart';
+import '../components/server_list/develop.dart';
+import '../components/server_list/production.dart';
 import '../utils/constants.dart';
 import '../utils/utility.dart';
 
@@ -32,6 +34,8 @@ class ServerList extends StatelessWidget {
               color: context.theme.colorScheme.onPrimary,
               onPressed: () async {
                 Get.find<ServerListController>().getServerList();
+                Get.find<ProductionController>().reload();
+                Get.find<DevelopController>().reload();
               }),
           IconButton(
               icon: Icon(Icons.logout),

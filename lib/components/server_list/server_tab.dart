@@ -5,8 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:server_manager/components/server_list/production.dart';
+import 'package:server_manager/models/Request/req_health.dart';
 
-import '../../models/res_server_list.dart';
+import '../../models/Request/req_signin.dart';
+import '../../models/Response/res_server_list.dart';
 import '../../utils/constants.dart';
 import '../../utils/network/network_manager.dart';
 import '../../utils/theme/color_manager.dart';
@@ -112,6 +114,8 @@ class ServerListController extends GetxController
     initialIndex: 0,
     animationDuration: const Duration(milliseconds: 800), // 탭 변경 애니메이션 시간
   );
+
+  get data => null;
 
   @override
   void onInit() async {

@@ -25,6 +25,9 @@ enum SNACK_TYPE { INFO, ERROR, ALARM }
 // Dialog Type
 enum DIALOG_TYPE { SELECT, MSG, NOTICE } // SELECT : yes & no select
 
+// Run ShellScript Type
+enum RUN_TYPE { RESTART, START , STOP }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /*
@@ -45,6 +48,10 @@ const API_REQ_POST = 'POST';
 const API_SIGN_IN = '/api/v1/admin/otp/sign-in';
 const API_VALID = '/api/v1/admin/otp/valid';
 const API_GET_SERVER_LIST ='/api/v1/admin/servers';
+const API_GET_HEALTH ='/api/v1/admin/servers/health';
+const API_RUN_RESTART ='/api/v1/admin/service/restart';
+const API_RUN_START ='/api/v1/admin/service/start';
+const API_RUN_STOP ='/api/v1/admin/service/stop';
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /*

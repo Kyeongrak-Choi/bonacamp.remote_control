@@ -8,7 +8,7 @@ import 'package:server_manager/components/otp_auth/pincode.dart';
 import 'package:server_manager/utils/constants.dart';
 
 import '../components/login/login_btn.dart';
-import '../models/req_signin.dart';
+import '../models/Request/req_signin.dart';
 import '../utils/database/hive_manager.dart';
 import '../utils/utility.dart';
 
@@ -102,14 +102,14 @@ class OTPAuthController extends GetxController {
   }
 
   Future<bool> checkSignin() async {
-    var options = BaseOptions(
-      baseUrl: KEY_BASE_URL,
-      contentType: 'application/json',
-      connectTimeout: Duration(seconds: CONNECT_TIMEOUT), // 2Min
-      receiveTimeout: Duration(seconds: RECEIVE_TIMEOUT), // 2Min
-    );
-
-    Dio dio = Dio(options);
+    // var options = BaseOptions(
+    //   baseUrl: KEY_BASE_URL,
+    //   contentType: 'application/json',
+    //   connectTimeout: Duration(seconds: CONNECT_TIMEOUT), // 2Min
+    //   receiveTimeout: Duration(seconds: RECEIVE_TIMEOUT), // 2Min
+    // );
+    //
+    // Dio dio = Dio(options);
     try {
       final response = await dio.post(KEY_BASE_URL + API_SIGN_IN,
           data: ReqSigninModel(Hive.box(LOCAL_DB).get(KEY_SAVED_ID)).toMap());

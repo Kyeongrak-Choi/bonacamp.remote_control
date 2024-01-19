@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
-import 'package:server_manager/models/req_valid.dart';
+import 'package:server_manager/models/Request/req_valid.dart';
 import 'package:server_manager/utils/utility.dart';
 
 import '../../utils/constants.dart';
