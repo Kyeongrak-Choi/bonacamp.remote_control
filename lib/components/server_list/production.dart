@@ -31,9 +31,9 @@ class Production extends StatelessWidget {
         child: ExpansionPanelList.radio(
           elevation: 0.0,
           animationDuration: Duration(milliseconds: 500),
-          children:
-          Get.find<ProductionController>().data.map<ExpansionPanelRadio>(
-                      (ResServerListModel model) {
+          children: Get.find<ProductionController>()
+              .data
+              .map<ExpansionPanelRadio>((ResServerListModel model) {
             return ExpansionPanelRadio(
               canTapOnHeader: true,
               value: model.id.toString(),
@@ -78,11 +78,39 @@ class Production extends StatelessWidget {
                       fit: BoxFit.contain,
                       child: IconButton(
                         onPressed: () {
-                          ShowDialog(DIALOG_TYPE.SELECT, '재시작',
-                              model.name, Get.context);
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                title: Text('운영 - 재시작'),
+                                content: Text(model.name),
+                                actions: <Widget>[
+                                  TextButton(
+                                    onPressed: () {
+                                      // 다이얼로그 닫기
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: Text('닫기'),
+                                  ),
+                                  TextButton(
+                                    onPressed: () async {
+                                      if (await Get.find<ProductionController>()
+                                          .run(RUN_TYPE.RESTART,
+                                          PROFILE_TYPE.prod, model.name)) {
+                                        ShowSnackBar('호출 성공');
+                                      } else {
+                                        ShowSnackBar('호출 실패');
+                                      }
+                                    },
+                                    child: Text('확인'),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
                         },
                         icon: Icon(
-                         // Icons.restart_alt,
+                          // Icons.restart_alt,
                           CupertinoIcons.refresh_circled_solid,
                           color: Colors.blue,
                         ),
@@ -92,7 +120,38 @@ class Production extends StatelessWidget {
                     FittedBox(
                       fit: BoxFit.contain,
                       child: IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                title: Text('운영 - 시작'),
+                                content: Text(model.name),
+                                actions: <Widget>[
+                                  TextButton(
+                                    onPressed: () {
+                                      // 다이얼로그 닫기
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: Text('닫기'),
+                                  ),
+                                  TextButton(
+                                    onPressed: () async {
+                                      if (await Get.find<ProductionController>()
+                                          .run(RUN_TYPE.START,
+                                              PROFILE_TYPE.prod, model.name)) {
+                                        ShowSnackBar('호출 성공');
+                                      } else {
+                                        ShowSnackBar('호출 실패');
+                                      }
+                                    },
+                                    child: Text('확인'),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+                        },
                         icon: Icon(
                           CupertinoIcons.arrow_right_circle_fill,
                           color: Colors.green,
@@ -103,7 +162,38 @@ class Production extends StatelessWidget {
                     FittedBox(
                       fit: BoxFit.contain,
                       child: IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                title: Text('운영 - 정지'),
+                                content: Text(model.name),
+                                actions: <Widget>[
+                                  TextButton(
+                                    onPressed: () {
+                                      // 다이얼로그 닫기
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: Text('닫기'),
+                                  ),
+                                  TextButton(
+                                    onPressed: () async {
+                                      if (await Get.find<ProductionController>()
+                                          .run(RUN_TYPE.STOP, PROFILE_TYPE.prod,
+                                              model.name)) {
+                                        ShowSnackBar('호출 성공');
+                                      } else {
+                                        ShowSnackBar('호출 실패');
+                                      }
+                                    },
+                                    child: Text('확인'),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+                        },
                         icon: Icon(
                           Icons.stop_circle,
                           color: Colors.red,
@@ -137,8 +227,8 @@ class ProductionController extends GetxController {
   }
 
   Future<void> reload() async {
-    await Future.delayed(Duration(seconds: 2));
-    for(int i=0; i<data.length; i++  ){
+    await Future.delayed(Duration(seconds: 1));
+    for (int i = 0; i < data.length; i++) {
       data[i].status = await getServerHealth(data[i].prodHealth);
     }
     update();
@@ -151,7 +241,7 @@ class ProductionController extends GetxController {
       final response = await dio.post(KEY_BASE_URL + API_GET_HEALTH,
           data: ReqHealthModel(url).toMap());
       if (response.statusCode == 200) {
-        return  response.data[TAG_DATA];
+        return response.data[TAG_DATA];
       }
     } on DioException catch (e) {
       if (e.response != null) {
@@ -161,11 +251,11 @@ class ProductionController extends GetxController {
     return '에러발생';
   }
 
-  Future<bool> run(String method,profile,service) async {
+  Future<bool> run(method, profile, service) async {
     dio = await reqApi();
     var api;
     try {
-      switch (method){
+      switch (method) {
         case RUN_TYPE.RESTART:
           api = API_RUN_RESTART;
           break;
@@ -177,7 +267,7 @@ class ProductionController extends GetxController {
           break;
       }
       final response = await dio.post(KEY_BASE_URL + api,
-          data: ReqRunModel(profile,service).toMap());
+          data: ReqRunModel(profile, service).toMap());
       if (response.statusCode == 200) {
         return true;
       }
@@ -189,5 +279,4 @@ class ProductionController extends GetxController {
     }
     return false;
   }
-
 }

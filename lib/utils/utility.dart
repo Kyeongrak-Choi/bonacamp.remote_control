@@ -25,7 +25,7 @@ void ShowDialog(type, title, content, context) {
   if (type == DIALOG_TYPE.SELECT) {
     // Choice Dialog
     ChoiceDialog choiceDialog = ChoiceDialog(
-      dialogBackgroundColor: CommonColors.primary,
+      dialogBackgroundColor: CommonColors.white,
       title: title,
       titleColor: CommonColors.dark,
       message: content,

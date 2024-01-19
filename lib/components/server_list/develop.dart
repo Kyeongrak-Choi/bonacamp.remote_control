@@ -5,12 +5,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:server_manager/components/server_list/production.dart';
 import 'package:server_manager/components/server_list/server_tab.dart';
 
 import '../../models/Request/req_health.dart';
+import '../../models/Request/req_run.dart';
 import '../../models/Response/res_server_list.dart';
 import '../../utils/constants.dart';
 import '../../utils/network/network_manager.dart';
+import '../../utils/utility.dart';
 
 class Develop extends StatelessWidget {
   var dataList;
@@ -74,7 +77,38 @@ class Develop extends StatelessWidget {
                     FittedBox(
                       fit: BoxFit.contain,
                       child: IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                title: Text('개발 - 재시작'),
+                                content: Text(model.name),
+                                actions: <Widget>[
+                                  TextButton(
+                                    onPressed: () {
+                                      // 다이얼로그 닫기
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: Text('닫기'),
+                                  ),
+                                  TextButton(
+                                    onPressed: () async {
+                                      if (await Get.find<ProductionController>()
+                                          .run(RUN_TYPE.RESTART,
+                                          PROFILE_TYPE.dev, model.name)) {
+                                        ShowSnackBar('호출 성공');
+                                      } else {
+                                        ShowSnackBar('호출 실패');
+                                      }
+                                    },
+                                    child: Text('확인'),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+                        },
                         icon: Icon(
                           CupertinoIcons.refresh_circled_solid,
                           color: Colors.blue,
@@ -85,7 +119,38 @@ class Develop extends StatelessWidget {
                     FittedBox(
                       fit: BoxFit.contain,
                       child: IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                title: Text('개발 - 시작'),
+                                content: Text(model.name),
+                                actions: <Widget>[
+                                  TextButton(
+                                    onPressed: () {
+                                      // 다이얼로그 닫기
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: Text('닫기'),
+                                  ),
+                                  TextButton(
+                                    onPressed: () async {
+                                      if (await Get.find<ProductionController>()
+                                          .run(RUN_TYPE.START,
+                                          PROFILE_TYPE.dev, model.name)) {
+                                        ShowSnackBar('호출 성공');
+                                      } else {
+                                        ShowSnackBar('호출 실패');
+                                      }
+                                    },
+                                    child: Text('확인'),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+                        },
                         icon: Icon(
                           CupertinoIcons.arrow_right_circle_fill,
                           color: Colors.green,
@@ -96,7 +161,38 @@ class Develop extends StatelessWidget {
                     FittedBox(
                       fit: BoxFit.contain,
                       child: IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                title: Text('개발 - 종료'),
+                                content: Text(model.name),
+                                actions: <Widget>[
+                                  TextButton(
+                                    onPressed: () {
+                                      // 다이얼로그 닫기
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: Text('닫기'),
+                                  ),
+                                  TextButton(
+                                    onPressed: () async {
+                                      if (await Get.find<ProductionController>()
+                                          .run(RUN_TYPE.STOP,
+                                          PROFILE_TYPE.dev, model.name)) {
+                                        ShowSnackBar('호출 성공');
+                                      } else {
+                                        ShowSnackBar('호출 실패');
+                                      }
+                                    },
+                                    child: Text('확인'),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+                        },
                         icon: Icon(
                           Icons.stop_circle,
                           color: Colors.red,
@@ -130,7 +226,7 @@ class DevelopController extends GetxController {
   }
 
   Future<void> reload() async {
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(Duration(seconds: 1));
     for(int i=0; i<data.length; i++  ){
       data[i].status = await getServerHealth(data[i].prodHealth);
     }
@@ -152,6 +248,35 @@ class DevelopController extends GetxController {
       }
     }
     return '에러발생';
+  }
+
+  Future<bool> run(method, profile, service) async {
+    dio = await reqApi();
+    var api;
+    try {
+      switch (method) {
+        case RUN_TYPE.RESTART:
+          api = API_RUN_RESTART;
+          break;
+        case RUN_TYPE.START:
+          api = API_RUN_START;
+          break;
+        case RUN_TYPE.STOP:
+          api = API_RUN_STOP;
+          break;
+      }
+      final response = await dio.post(KEY_BASE_URL + api,
+          data: ReqRunModel(profile, service).toMap());
+      if (response.statusCode == 200) {
+        return true;
+      }
+    } on DioException catch (e) {
+      if (e.response != null) {
+        e.printInfo();
+      }
+      return false;
+    }
+    return false;
   }
 
 }

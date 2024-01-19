@@ -35,7 +35,7 @@ class LoginLogo extends StatelessWidget {
               0.w,
               BASIC_PADDING * 2.h),
           child: Text(
-            'System Control',
+            'Remote System Control',
             style: context.textTheme.headlineSmall
                 ?.copyWith(color: CommonColors.navigation),
             textAlign: TextAlign.center,

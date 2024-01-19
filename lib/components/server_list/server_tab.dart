@@ -51,13 +51,13 @@ class ServerTab extends StatelessWidget {
                 tabs: [
                   Container(
                     child: Text(
-                      'Production'.tr,
+                      '운영',
                     ),
                     alignment: Alignment.center,
                   ),
                   Container(
                     child: Text(
-                      'Develop'.tr,
+                      '개발',
                     ),
                     alignment: Alignment.center,
                   ),

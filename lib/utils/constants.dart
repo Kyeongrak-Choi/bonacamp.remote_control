@@ -28,6 +28,9 @@ enum DIALOG_TYPE { SELECT, MSG, NOTICE } // SELECT : yes & no select
 // Run ShellScript Type
 enum RUN_TYPE { RESTART, START , STOP }
 
+// Run ShellScript Profile Type
+enum PROFILE_TYPE { prod, dev }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /*
