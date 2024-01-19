@@ -15,11 +15,18 @@ Future<void> BoxClear() async {
   await Hive.openBox(LOCAL_DB);
 }
 
-// return Bool Data
-bool getHiveBool(bool data) {
-  if (data == true) {
-    return true;
+// init set token
+Future<void> initKey(email) async {
+  await Hive.box(LOCAL_DB).put(email, '');
+}
+
+Future<String> getKey(email) async {
+  String key =
+  await Hive.box(LOCAL_DB).get(email, defaultValue: 'fail');
+
+  if (key == 'fail') {
+    return 'GetKey() Failed';
   } else {
-    return false;
+    return key;
   }
 }

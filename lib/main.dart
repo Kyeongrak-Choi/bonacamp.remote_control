@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:server_manager/layouts/otp_auth.dart';
+import 'package:server_manager/layouts/server_list.dart';
 import 'package:server_manager/utils/constants.dart';
 import 'package:server_manager/utils/database/hive_manager.dart';
 import 'package:server_manager/utils/theme/theme_manager.dart';
@@ -18,11 +19,6 @@ void main() async {
   // Hive Adapter Regist
   RegisterAdapter();
   await Hive.openBox(LOCAL_DB);
-  // init Theme Setting
-  Get.changeThemeMode(
-      Hive.box(LOCAL_DB).get(KEY_THEME_MODE, defaultValue: false)
-          ? ThemeMode.dark
-          : ThemeMode.light);
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -43,7 +39,6 @@ class AdminManager extends StatelessWidget {
           fallbackLocale: Locale('ko', 'KR'),
           // default locale set
           theme: Themes.light,
-          darkTheme: Themes.dark,
           themeMode: ThemeMode.system,
           supportedLocales: [
             const Locale('ko', 'KR'),
@@ -58,6 +53,8 @@ class AdminManager extends StatelessWidget {
             // Layout
             GetPage(name: ROUTE_LOGIN, page: () => Login()), // Login
             GetPage(name: ROUTE_AUTH, page: () => OTPAuth()), // Google OTP Auth
+            GetPage(name: ROUTE_SERVER_LIST, page: () => ServerList()), // main
+            // Auth
           ],
           home: Login(),
         ),

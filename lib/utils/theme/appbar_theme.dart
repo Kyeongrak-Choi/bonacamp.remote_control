@@ -1,30 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:server_manager/utils/theme/text_theme.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'color_manager.dart';
 
 AppBarTheme appBarThemeLight() {
   return AppBarTheme(
-    centerTitle: false,
-    //color: LightColors.basic,
-    backgroundColor: LightColors.background,
-    elevation: 0.0,
-    titleTextStyle: textThemeLight().displayLarge,
+    shadowColor: LightColors.backgroundColor,
+    elevation: 5.0,
+    centerTitle: true,
+    backgroundColor: LightColors.canvasColor,
+    titleTextStyle: TextStyle(
+        fontSize: 16.sp,
+        fontWeight: FontWeight.bold,
+        color: LightColors.font100),
     iconTheme: const IconThemeData(
-      color: DarkColors.basic,
-    ),
-  );
-}
-
-AppBarTheme appBarThemeDark() {
-  return AppBarTheme(
-    centerTitle: false,
-    //color: DarkColors.basic,
-    backgroundColor: DarkColors.background,
-    elevation: 0.0,
-    titleTextStyle: textThemeDark().displayLarge,
-    iconTheme: const IconThemeData(
-      color: LightColors.basic,
+      color: LightColors.iconColor,
     ),
   );
 }

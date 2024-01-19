@@ -11,19 +11,12 @@ class NetworkManager extends GetxController {
   }
 }
 
-Future<Dio> reqApi(header) async {
+Future<Dio> reqApi() async {
   var options = BaseOptions(
-    baseUrl: await Hive.box(LOCAL_DB).get(KEY_BASE_URL, defaultValue: 'fail'),
-    headers: {
-      'Authorization':
-          await Hive.box(LOCAL_DB).get(KEY_SAVED_TOKEN, defaultValue: 'fail'),
-      'Client-Code': header
-    },
-    //headers: {'Authorization': 'Bearer asdasd', 'Client-Code': header},
+    baseUrl: KEY_BASE_URL,
     contentType: 'application/json',
     connectTimeout: Duration(seconds: CONNECT_TIMEOUT),
-    // 15s
-    receiveTimeout: Duration(seconds: RECEIVE_TIMEOUT), // 10s
+    receiveTimeout: Duration(seconds: RECEIVE_TIMEOUT),
   );
 
   Dio dio = Dio(options);
