@@ -29,8 +29,6 @@ Firebase Google 로그인기능 관련하여,
 빌드시 본인 PC SHA 인증서 지문 값이 Firebase 프로젝트에 등록되어야 하고,
 SHA 키 등록후 google-services.json 새로 받아서 프로젝트에 포함시켜야 함
 
-![image](https://github.com/bonacamp-dev/bonacamp.se.system-manager/assets/107381786/d3317cdd-0edb-43ed-9afc-58d2f03e2522)
-
 
 ## Directory
 
